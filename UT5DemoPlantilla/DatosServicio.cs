@@ -26,6 +26,8 @@ namespace UT5DemoPlantilla
             lPersonas.Add(new Persona("Luis", 40));
             lPersonas.Add(new Persona("María", 10));
             lPersonas.Add(new Persona("José", 72));
+            lPersonas.Add(new Persona("Rosa", 32));
+            lPersonas.Add(new Persona("Susana", 62));
             return lPersonas;
         }
     }

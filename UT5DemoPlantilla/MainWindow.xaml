@@ -10,15 +10,16 @@
 
     <Window.Resources>
         
-       <DataTemplate x:Key="plantillaPersona">
+       <!--<DataTemplate x:Key="plantillaPersona">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="{Binding Path=Nombre}"></TextBlock>
                     <TextBlock Text="-"></TextBlock>
                     <TextBlock Text="{Binding Path=Edad}"></TextBlock>
                 </StackPanel>
-       </DataTemplate>
-
-        <!--<Style TargetType="ListBox" x:Key="prueba1">
+       </DataTemplate>-->
+       
+       <!-- Estilo para ListBox de ListaPersonas. -->
+       <Style TargetType="ListBox" x:Key="prueba1">
             <Setter Property="Background" Value="LightBlue"/>
             <Setter Property="BorderBrush" Value="Red"/>
             <Setter Property="BorderThickness" Value="2"/>
@@ -26,14 +27,22 @@
             <Setter Property="ItemTemplate">
                 <Setter.Value>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="10" Orientation="Horizontal">
                             <TextBlock Text="{Binding Path=Nombre}"></TextBlock>
                             <TextBlock Text="-"></TextBlock>
                             <TextBlock Text="{Binding Path=Edad}"></TextBlock>
                         </StackPanel>
                     </DataTemplate>
-                </Setter.Value</Setter>
-        </Style>-->
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                        <ItemsPanelTemplate>
+                           <UniformGrid></UniformGrid>
+                        </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
        
     </Window.Resources>
     <StackPanel>
@@ -53,11 +62,8 @@
         <Label Content="2.- Ejemplo de LISTBOX utilizando PLANTILLA:" Margin="30,5,30,5" FontSize="18" Foreground="Red" HorizontalAlignment="Left"/>
         <ListBox ItemsSource="{Binding Path=ListaPersonas}" 
                  SelectedItem="{Binding Path=PersonaSeleccionada}"
-                 ItemTemplate="{StaticResource plantillaPersona}"
-                 FontSize="18"
-                 Margin="30,5,30,0"
+                 Style="{StaticResource prueba1}"
                  >
-
         </ListBox>
 
         <Label Content="Nombre" FontSize="18" FontWeight="Bold" Margin="150,10,40,0" HorizontalAlignment="Left"/>

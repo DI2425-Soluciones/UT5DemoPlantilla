@@ -14,25 +14,25 @@ namespace UT5DemoPlantilla
 
 
         // Propiedades para el PRIMER EJEMPLO.
-        private ObservableCollection<string> listaProvincias;
+        private ObservableCollection<string> _listaProvincias;
         public ObservableCollection<string> ListaProvincias
         {
-            get { return listaProvincias; }
+            get { return _listaProvincias; }
             set
             {
-                listaProvincias = value;
+                _listaProvincias = value;
                 NotifyPropertyChanged("ListaProvincias");
             }
         }
 
         // Propiedades para el SEGUNDO EJEMPLO.
-        private ObservableCollection<Persona> listaPersonas;
+        private ObservableCollection<Persona> _listaPersonas;
         public ObservableCollection<Persona> ListaPersonas
         {
-            get { return listaPersonas; }
+            get { return _listaPersonas; }
             set
             {
-                listaPersonas = value;
+                _listaPersonas = value;
                 NotifyPropertyChanged("ListaPersonas");
             }
         }
