@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UT5DemoPlantilla"
         mc:Ignorable="d"
-        Title="UT5Demo" SizeToContent="WidthAndHeight" MinHeight="600" MinWidth="500"
+        Title="UT5Demo LISTBOX" SizeToContent="WidthAndHeight" MinHeight="600" MinWidth="500"
         >
 
     <Window.Resources>
@@ -18,12 +18,21 @@
                 </StackPanel>
        </DataTemplate>-->
        
-       <!-- Estilo para ListBox de ListaPersonas. -->
+       <!-- Estilo para ListBox de ListaPersonas con uso de:   -->
+       <!-- - ItemsPanel: UniformGrid                          -->
+       <!-- - ItemTemplate: DataTemplate con StackPanel        -->
        <Style TargetType="ListBox" x:Key="prueba1">
             <Setter Property="Background" Value="LightBlue"/>
             <Setter Property="BorderBrush" Value="Red"/>
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="FontSize" Value="18"/>
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <UniformGrid></UniformGrid>
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
             <Setter Property="ItemTemplate">
                 <Setter.Value>
                     <DataTemplate>
@@ -35,19 +44,13 @@
                     </DataTemplate>
                 </Setter.Value>
             </Setter>
-            <Setter Property="ItemsPanel">
-                <Setter.Value>
-                        <ItemsPanelTemplate>
-                           <UniformGrid></UniformGrid>
-                        </ItemsPanelTemplate>
-                </Setter.Value>
-            </Setter>
         </Style>
        
     </Window.Resources>
     <StackPanel>
 
-        <Label Content="1.- Ejemplo de LISTBOX utilizando PANELES:" Margin="30,5,30,5" FontSize="18" Foreground="Red" HorizontalAlignment="Left"/>
+        <Label Content="1.- Ejemplo de LISTBOX utilizando PANELES:"
+               Margin="30,5,30,5" FontSize="18" Foreground="Red" HorizontalAlignment="Left"/>
         <ListBox FontSize="18" Margin="20" 
                  ItemsSource="{Binding Path=ListaProvincias}">
             <ListBox.ItemsPanel>
@@ -59,7 +62,8 @@
 
         <Button Margin="10,10,10,40" Width="250" Click="Button_Click">Añadir Provincia</Button>
 
-        <Label Content="2.- Ejemplo de LISTBOX utilizando PLANTILLA:" Margin="30,5,30,5" FontSize="18" Foreground="Red" HorizontalAlignment="Left"/>
+        <Label Content="2.- Ejemplo de LISTBOX aplicando un ESTILO con PANEL y PLANTILLA:" 
+               Margin="30,5,30,5" FontSize="18" Foreground="Red" HorizontalAlignment="Left"/>
         <ListBox ItemsSource="{Binding Path=ListaPersonas}" 
                  SelectedItem="{Binding Path=PersonaSeleccionada}"
                  Style="{StaticResource prueba1}"

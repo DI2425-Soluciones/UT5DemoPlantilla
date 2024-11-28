@@ -38,13 +38,13 @@ namespace UT5DemoPlantilla
         }
 
         // Indicamos donde recoger los datos de la persona seleccionada.
-        private Persona personaSeleccionada;
+        private Persona _personaSeleccionada;
         public Persona PersonaSeleccionada
         {
-            get { return personaSeleccionada; }
+            get { return _personaSeleccionada; }
             set
             {
-                personaSeleccionada = value;
+                _personaSeleccionada = value;
                 NotifyPropertyChanged("PersonaSeleccionada");
             }
         }
@@ -52,7 +52,8 @@ namespace UT5DemoPlantilla
 
         public MainWindowVM()
         {
-            // Inicializamos las listas desde la clase DatosServicio.
+            // Inicializamos las listas desde la clase DatosServicio
+            // con el método correspondiente.
 
             ListaProvincias = DatosServicio.GetProvincias();
 
